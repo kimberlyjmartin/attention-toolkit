@@ -1,0 +1,318 @@
+/* ===========================================================
+   Attention Toolkit — shared stylesheet
+   Concept: a teacher's filing cabinet. Five folder tabs (root
+   causes), each tab its own color. Inside, strategies read as
+   index cards pulled from the folder.
+   =========================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap');
+
+:root{
+  --ink:        #23291F;
+  --ink-soft:   #4B5245;
+  --paper:      #EDE4CC;
+  --paper-light:#F7F2E2;
+  --paper-deep: #E3D8B8;
+  --chalk-dark: #2F3B35;
+  --chalk-line: #C9BFA0;
+
+  --accent-cognitive: #5B7C8D;
+  --accent-relevance:  #C98A2B;
+  --accent-modality:   #A64B3F;
+  --accent-belonging:  #6B8F5A;
+  --accent-autonomy:   #7D5A7A;
+
+  /* default accent, overridden per page */
+  --accent: var(--chalk-dark);
+}
+
+*{ box-sizing: border-box; }
+
+html{ scroll-behavior: smooth; }
+
+body{
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.55;
+}
+
+h1, h2, h3{
+  font-family: 'Zilla Slab', Georgia, serif;
+  color: var(--ink);
+  margin: 0 0 0.4em;
+}
+
+a{ color: inherit; }
+
+.eyebrow{
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* ---------- top tab navigation ---------- */
+
+.tabbar{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 18px clamp(16px, 5vw, 48px) 0;
+  background: var(--chalk-dark);
+}
+
+.tab{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px 14px;
+  border-radius: 10px 10px 0 0;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-decoration: none;
+  color: #EDE4CC;
+  background: rgba(237, 228, 204, 0.08);
+  border: 1px solid rgba(237, 228, 204, 0.16);
+  border-bottom: none;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.tab:hover{
+  transform: translateY(-3px);
+  background: rgba(237, 228, 204, 0.16);
+}
+
+.tab.home{
+  background: transparent;
+  border-color: transparent;
+  color: #EDE4CC;
+  opacity: 0.75;
+}
+.tab.home:hover{ opacity: 1; transform: none; }
+
+.tab.active{
+  background: var(--paper);
+  color: var(--ink);
+  border-color: var(--paper);
+  transform: translateY(0);
+}
+
+.tab .dot{
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: var(--tab-color, currentColor);
+  flex-shrink: 0;
+}
+
+/* ---------- header band (per-page, colored) ---------- */
+
+.header-band{
+  background: var(--chalk-dark);
+  color: var(--paper);
+  padding: 8px clamp(16px, 5vw, 48px) 56px;
+}
+
+.header-band .kicker{
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.header-band h1{
+  color: var(--paper);
+  font-size: clamp(1.9rem, 4.2vw, 2.9rem);
+  max-width: 16ch;
+}
+
+.header-band .principle{
+  font-size: 1.05rem;
+  color: var(--paper-deep);
+  max-width: 58ch;
+  margin-top: 14px;
+}
+
+.header-band .principle strong{
+  color: var(--accent);
+}
+
+/* ---------- home hero ---------- */
+
+.hero{
+  padding: clamp(28px, 6vw, 64px) clamp(16px, 5vw, 48px) 8px;
+}
+
+.hero h1{
+  font-size: clamp(2.1rem, 5vw, 3.4rem);
+  max-width: 18ch;
+}
+
+.hero p.lede{
+  font-size: 1.1rem;
+  color: var(--ink-soft);
+  max-width: 62ch;
+}
+
+/* ---------- folder grid (home) ---------- */
+
+.folder-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 18px;
+  padding: 12px clamp(16px, 5vw, 48px) 64px;
+}
+
+.folder-card{
+  position: relative;
+  display: block;
+  text-decoration: none;
+  background: var(--paper-light);
+  border: 1px solid var(--chalk-line);
+  border-top: 6px solid var(--card-color, var(--chalk-dark));
+  border-radius: 4px 14px 10px 10px;
+  padding: 26px 22px 22px;
+  color: var(--ink);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.folder-card:hover{
+  transform: translateY(-5px);
+  box-shadow: 0 14px 24px -14px rgba(43, 34, 20, 0.35);
+}
+
+.folder-card .tag{
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--card-color);
+  display: block;
+  margin-bottom: 10px;
+}
+
+.folder-card h2{
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+}
+
+.folder-card p{
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+/* ---------- strategy cards (inner pages) ---------- */
+
+.intro{
+  max-width: 68ch;
+  padding: 34px clamp(16px, 5vw, 48px) 6px;
+  color: var(--ink-soft);
+  font-size: 1.02rem;
+}
+
+.card-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  padding: 18px clamp(16px, 5vw, 48px) 40px;
+}
+
+.card{
+  background: var(--paper-light);
+  border: 1px solid var(--chalk-line);
+  border-left: 5px solid var(--accent);
+  border-radius: 3px 10px 10px 3px;
+  padding: 20px 22px;
+}
+
+.card h3{
+  font-size: 1.12rem;
+  margin-bottom: 8px;
+}
+
+.card p{
+  margin: 0;
+  font-size: 0.94rem;
+  color: var(--ink-soft);
+}
+
+/* ---------- cross-link footer note ---------- */
+
+.crosslink{
+  margin: 8px clamp(16px, 5vw, 48px) 56px;
+  padding: 18px 22px;
+  background: var(--paper-deep);
+  border-radius: 10px;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  max-width: 68ch;
+}
+
+.crosslink strong{ color: var(--ink); }
+
+/* ---------- footer nav (prev/next) ---------- */
+
+.pagenav{
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 clamp(16px, 5vw, 48px) 60px;
+  flex-wrap: wrap;
+}
+
+.pagenav a{
+  text-decoration: none;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 12px 18px;
+  border: 1px solid var(--chalk-line);
+  border-radius: 8px;
+  color: var(--ink);
+  background: var(--paper-light);
+  transition: background 0.15s ease;
+}
+.pagenav a:hover{ background: var(--paper-deep); }
+
+/* ---------- footer ---------- */
+
+.site-footer{
+  padding: 24px clamp(16px, 5vw, 48px) 40px;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  border-top: 1px solid var(--chalk-line);
+}
+
+/* ---------- focus visibility ---------- */
+
+a:focus-visible, .tab:focus-visible{
+  outline: 3px solid var(--ink);
+  outline-offset: 2px;
+}
+
+/* ---------- reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce){
+  *{ transition: none !important; }
+  html{ scroll-behavior: auto; }
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 560px){
+  .tabbar{ padding-top: 12px; }
+  .tab{ padding: 10px 12px 12px; font-size: 0.68rem; }
+}
