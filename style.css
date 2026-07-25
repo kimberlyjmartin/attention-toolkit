@@ -117,23 +117,15 @@ a{ color: inherit; }
   background: var(--chalk-dark);
   color: var(--paper);
   padding: 8px clamp(16px, 5vw, 48px) 56px;
-  text-align: center; 
-}
-
-.header-band .kicker{
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 0.78rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--accent);
-  font-weight: 600;
-  margin-bottom: 10px;
+  text-align: center;
 }
 
 .header-band h1{
   color: var(--paper);
   font-size: clamp(1.9rem, 4.2vw, 2.9rem);
   max-width: 16ch;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .header-band .principle{
@@ -141,10 +133,8 @@ a{ color: inherit; }
   color: var(--paper-deep);
   max-width: 58ch;
   margin-top: 14px;
-}
-
-.header-band .principle strong{
-  color: var(--accent);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* ---------- home hero ---------- */
