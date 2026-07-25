@@ -117,6 +117,7 @@ a{ color: inherit; }
   background: var(--chalk-dark);
   color: var(--paper);
   padding: 8px clamp(16px, 5vw, 48px) 56px;
+  text-align: center; 
 }
 
 .header-band .kicker{
