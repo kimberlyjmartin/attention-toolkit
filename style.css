@@ -122,20 +122,19 @@ a{ color: inherit; }
 
 .header-band h1{
   color: var(--paper);
-  font-size: clamp(1.9rem, 4.2vw, 2.9rem);
-  max-width: 16ch;
-  margin-left: auto;
-  margin-right: auto;
+  font-size: clamp(1.4rem, 3.2vw, 2.1rem);
+   margin: 0 0 0.2rem 0;     
+  max-width: 20ch;         
+  font-weight: 600;         
 }
 
 .header-band .principle{
-  font-size: 1.05rem;
+  font-size: 1.18rem;
   color: var(--paper-deep);
+   margin-top: 0.6rem;       
+  max-width: 60ch;         
   max-width: 58ch;
-  margin-top: 14px;
-  margin-left: auto;
-  margin-right: auto;
-}
+ }
 
 /* ---------- home hero ---------- */
 
